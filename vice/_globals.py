@@ -29,14 +29,14 @@ References
 (2) Salpeter (1955), ApJ, 121, 161 
 """
 
-import warnings
-import numbers
-import inspect
-import pickle
+import warnings   # alert user of some condition in a program 
+import numbers	  # heirarchy of numeric abstract base classes (conjugate, real, imag, rational, etc)
+import inspect    # contains functions that gather information about objects such aws modules, classes, methods, etc. (getmembers(), isfunction())
+import pickle     # allows for serialization (pickling...turning data into a bite stream for storage then back again to recunstruct it later)
 try: 
-	ModuleNotFoundError 
-except: 
-	ModuleNotFoundError = ImportError 
+	ModuleNotFoundError                 # Generate instance of ModuleNotFoundError then send to except and call it import error???
+except: 								# What is the difference between the white and blue coloring???
+	ModuleNotFoundError = ImportError   # Not sure why we are try: ModuleFoundError???
 try: 
 	"""
 	dill extends the pickle module and allows functional attributes to be 
@@ -44,15 +44,14 @@ try:
 	of pickle.dump. All cases can be taken care of by overriding the native 
 	pickle module and letting dill masquerade as pickle. 
 	"""
-	import dill as pickle 
+	import dill as pickle                     # try to import dill as pickle, if module not found, don't worry about it.
 except (ImportError, ModuleNotFoundError):
 	pass
-import sys
-import os
+import sys     # module provides access to some variables sed or maintained by the intrepreter (intrepreter intreprets without compiler)
+import os      # module allows python to run regardless of the operating system of the user.
 
-__all__ = ["_DEFAULT_FUNC_", "_DEFAULT_BINS_", "_RECOGNIZED_ELEMENTS_", 
-	"_RECOGNIZED_IMFS_"] 
-__all__ = [str(i) for i in __all__] # appease python 2 strings 
+__all__ = ["_DEFAULT_FUNC_", "_DEFAULT_BINS_", "_RECOGNIZED_ELEMENTS_", "_RECOGNIZED_IMFS_"]  # List of strings defining what symbols in a module will be exported when from<module> import * is used.
+__all__ = [str(i) for i in __all__] # appease python 2 strings                         # recast this list into a way that makes python 2 happy.
 
 # The path to the directory after installation 
 _DIRECTORY_ = "%s/" % (os.path.dirname(os.path.abspath(__file__)))
